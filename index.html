@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Болд & Оюун — Хуримын урилга</title>
+  <meta name="description" content="Бидний хуримын ёслолд хүрэлцэн ирэхийг хүндэтгэн урьж байна." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Хөгжим -->
+  <button id="musicToggle" class="music-toggle" aria-label="Хөгжим">
+    <span class="music-icon">&#9834;</span>
+  </button>
+  <audio id="bgMusic" loop preload="none">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <span class="hero-monogram" aria-hidden="true">Б&amp;О</span>
+    <svg class="sprig sprig-tl" viewBox="0 0 120 120" aria-hidden="true"><path d="M10 110 C 40 90 55 60 60 20 M60 40 C 45 40 35 33 32 22 M60 55 C 78 53 88 45 92 33 M60 72 C 46 72 37 66 33 56 M60 88 C 77 86 86 80 90 71" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <svg class="sprig sprig-br" viewBox="0 0 120 120" aria-hidden="true"><path d="M10 110 C 40 90 55 60 60 20 M60 40 C 45 40 35 33 32 22 M60 55 C 78 53 88 45 92 33 M60 72 C 46 72 37 66 33 56 M60 88 C 77 86 86 80 90 71" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+
+    <div class="hero-content reveal">
+      <span class="overline overline-light">Хуримын урилга</span>
+      <h1 class="couple">
+        <span class="name">Болд</span>
+        <span class="amp">&amp;</span>
+        <span class="name">Оюун</span>
+      </h1>
+      <div class="divider divider-light">
+        <i></i><span class="divider-mark">&#10022;</span><i></i>
+      </div>
+      <p class="hero-date">2026 оны 9 дүгээр сарын 12, Бямба гараг</p>
+      <p class="hero-place">Улаанбаатар хот</p>
+      <a href="#rsvp" class="btn">Ирэхээ батлах</a>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </header>
+
+  <!-- ===== COUNTDOWN (тод бараан хэсэг) ===== -->
+  <section class="countdown-section">
+    <div class="sec-head reveal">
+      <span class="overline overline-light">Хүлээлт</span>
+      <h2 class="section-title light">Тэр өдөр хүртэл</h2>
+    </div>
+    <div class="countdown reveal" id="countdown">
+      <div class="cd-item"><span id="cd-days">00</span><label>Хоног</label></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span id="cd-hours">00</span><label>Цаг</label></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span id="cd-mins">00</span><label>Минут</label></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-item"><span id="cd-secs">00</span><label>Секунд</label></div>
+    </div>
+  </section>
+
+  <!-- ===== ТҮҮХ ===== -->
+  <section class="story" id="story">
+    <div class="sec-head reveal">
+      <span class="overline">Эхлэл</span>
+      <h2 class="section-title">Бидний түүх</h2>
+      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+    </div>
+    <p class="story-text reveal">
+      Хоёр зүрх нэгэн замаар учирч, амьдралынхаа хамгийн үзэсгэлэнт бүлгийг хамтдаа
+      бичиж эхлэхээр шийдлээ. Энэхүү ариун өдрийн баяр баясгаланг хамгийн ойр дотны
+      хүмүүстэйгээ хуваалцахыг чин сэтгэлээсээ хүсэн хүндэтгэн урьж байна.
+    </p>
+  </section>
+
+  <!-- ===== ЁСЛОЛЫН ХӨТӨЛБӨР ===== -->
+  <section class="program" id="program">
+    <div class="sec-head reveal">
+      <span class="overline">Хөтөлбөр</span>
+      <h2 class="section-title">Ёслолын өдөр</h2>
+      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+    </div>
+    <div class="program-grid">
+      <div class="prog-item reveal">
+        <span class="numeral">I</span>
+        <h3>Гэрлэлтийн ёслол</h3>
+        <p class="prog-time">15:00</p>
+        <p class="prog-place">Гэрлэлтийн ордон</p>
+      </div>
+      <div class="prog-item reveal">
+        <span class="numeral">II</span>
+        <h3>Хүндэтгэлийн хүлээн авалт</h3>
+        <p class="prog-time">18:00</p>
+        <p class="prog-place">Шангри-Ла, Гранд Болл</p>
+      </div>
+      <div class="prog-item reveal">
+        <span class="numeral">III</span>
+        <h3>Үдэшлэг</h3>
+        <p class="prog-time">20:00</p>
+        <p class="prog-place">Хөгжим ба баяр наадам</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ГАЛЕРЕЙ ===== -->
+  <section class="gallery" id="gallery">
+    <div class="sec-head reveal">
+      <span class="overline">Дурсамж</span>
+      <h2 class="section-title">Хосын цомог</h2>
+      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item"></div>
+      <div class="g-item"></div>
+      <div class="g-item"></div>
+      <div class="g-item"></div>
+      <div class="g-item"></div>
+      <div class="g-item"></div>
+    </div>
+    <p class="gallery-note reveal">Зургуудаа <code>assets/photo1.jpg … photo6.jpg</code> нэрээр байршуулна уу.</p>
+  </section>
+
+  <!-- ===== БАЙРШИЛ ===== -->
+  <section class="location" id="location">
+    <div class="sec-head reveal">
+      <span class="overline">Газрын зураг</span>
+      <h2 class="section-title">Байршил</h2>
+      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+    </div>
+    <p class="loc-address reveal">Шангри-Ла зочид буудал · Улаанбаатар</p>
+    <div class="map-wrap reveal">
+      <iframe
+        title="Газрын зураг"
+        src="https://www.google.com/maps?q=Shangri-La+Ulaanbaatar&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <a class="btn btn-outline" href="https://maps.google.com/?q=Shangri-La+Ulaanbaatar" target="_blank" rel="noopener">Замын зураг харах</a>
+  </section>
+
+  <!-- ===== RSVP ===== -->
+  <section class="rsvp" id="rsvp">
+    <div class="sec-head reveal">
+      <span class="overline overline-light">Хариу</span>
+      <h2 class="section-title light">Ирэхээ батлах</h2>
+      <div class="divider divider-light"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+    </div>
+    <p class="rsvp-sub reveal">Та ирэх боломжтой эсэхээ 2026 оны 8 дугаар сарын 20-ны дотор бидэнд мэдэгдээрэй.</p>
+    <form id="rsvpForm" class="rsvp-form reveal">
+      <label>Таны нэр<input type="text" name="name" required /></label>
+      <label>Утасны дугаар<input type="tel" name="phone" /></label>
+      <label>Ирэх эсэх
+        <select name="attending" required>
+          <option value="" disabled selected>Сонгоно уу</option>
+          <option value="yes">Баяртайгаар оролцоно</option>
+          <option value="no">Харамсалтай, чадахгүй</option>
+        </select>
+      </label>
+      <label>Хэдэн хүн ирэх вэ?<input type="number" name="guests" min="1" max="10" /></label>
+      <label class="full">Ерөөл, захиас<textarea name="message" rows="3"></textarea></label>
+      <button type="submit" class="btn btn-light">Илгээх</button>
+      <p id="rsvpMsg" class="rsvp-result" hidden></p>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="monogram">Б<span>&amp;</span>О</div>
+    <p class="footer-note">Таныг хүлээн угтахыг тэсэн ядан хүлээж байна</p>
+    <p class="footer-date">2026 · 09 · 12</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
