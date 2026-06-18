@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="ground" cx="50%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#fffefb"/>
+      <stop offset="48%" stop-color="#f5f1ea"/>
+      <stop offset="100%" stop-color="#efe7da"/>
+    </radialGradient>
+    <linearGradient id="goldBand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8a96f"/>
+      <stop offset="45%" stop-color="#b18f5a"/>
+      <stop offset="100%" stop-color="#c8a96f"/>
+    </linearGradient>
+    <linearGradient id="goldBand2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8a96f"/>
+      <stop offset="50%" stop-color="#b18f5a"/>
+      <stop offset="100%" stop-color="#c8a96f"/>
+    </linearGradient>
+    <radialGradient id="shadow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#29251f" stop-opacity="0.16"/>
+      <stop offset="60%" stop-color="#29251f" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#29251f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glint" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fffefb" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#fffefb" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.145  0 0 0 0 0.122  0 0 0 0.045 0"/>
+    </filter>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+  </defs>
+
+  <!-- ground -->
+  <rect width="800" height="1000" fill="url(#ground)"/>
+
+  <!-- whisper-soft grain texture -->
+  <rect width="800" height="1000" filter="url(#grain)" opacity="0.5"/>
+
+  <!-- sparse faint dots -->
+  <g fill="#b18f5a" opacity="0.05">
+    <circle cx="150" cy="190" r="2"/>
+    <circle cx="650" cy="240" r="2"/>
+    <circle cx="120" cy="760" r="2"/>
+    <circle cx="690" cy="820" r="2"/>
+    <circle cx="400" cy="120" r="1.6"/>
+    <circle cx="250" cy="880" r="1.6"/>
+    <circle cx="560" cy="700" r="1.6"/>
+  </g>
+
+  <!-- gentle long shadow under rings -->
+  <ellipse cx="430" cy="600" rx="260" ry="74" fill="url(#shadow)" filter="url(#soft)"/>
+
+  <!-- interlocking wedding rings -->
+  <g fill="none" stroke-linecap="round">
+    <!-- back ring (right) -->
+    <ellipse cx="470" cy="500" rx="118" ry="150" stroke="url(#goldBand2)" stroke-width="14"/>
+    <ellipse cx="470" cy="500" rx="118" ry="150" stroke="#fffefb" stroke-width="2" opacity="0.45"/>
+
+    <!-- front ring (left), overlapping -->
+    <ellipse cx="350" cy="510" rx="118" ry="150" stroke="url(#goldBand)" stroke-width="14"/>
+    <ellipse cx="350" cy="510" rx="118" ry="150" stroke="#fffefb" stroke-width="2" opacity="0.55"/>
+
+    <!-- re-stroke the front ring's interlocking arc so it reads as woven -->
+    <path d="M 350 360 A 118 150 0 0 1 444 605" stroke="url(#goldBand)" stroke-width="14"/>
+  </g>
+
+  <!-- delicate four-point sparkle glint on the band -->
+  <g transform="translate(300,408)">
+    <circle r="26" fill="url(#glint)"/>
+    <g stroke="#fffefb" stroke-width="1.4" stroke-linecap="round" opacity="0.95">
+      <path d="M 0 -22 C 2.2 -6 2.2 -6 22 0 C 2.2 6 2.2 6 0 22 C -2.2 6 -2.2 6 -22 0 C -2.2 -6 -2.2 -6 0 -22 Z" fill="#fffefb"/>
+    </g>
+  </g>
+  <!-- secondary tiny glints -->
+  <g stroke="#fffefb" stroke-width="1" stroke-linecap="round" opacity="0.7">
+    <path d="M 560 470 l 0 -12 M 560 470 l 0 12 M 560 470 l -12 0 M 560 470 l 12 0"/>
+  </g>
+
+  <!-- thin inset gold frame, ~24px inset -->
+  <rect x="24" y="24" width="752" height="952" fill="none" stroke="#b18f5a" stroke-width="1" opacity="0.85"/>
+  <rect x="31" y="31" width="738" height="938" fill="none" stroke="#e2d7c5" stroke-width="1" opacity="0.7"/>
+</svg>

@@ -21,9 +21,16 @@
 | Хосын нэр, огноо, текст | `index.html` |
 | Огноо/цаг (тоолуур) | `script.js` дотор `WEDDING_DATE` |
 | Өнгө, фонт, загвар | `styles.css` дээд талын `:root` хувьсагчид |
-| Зургууд | `assets/photo1.jpg … photo6.jpg` |
+| Зургууд (галерей) | `assets/photo1.svg … photo6.svg` |
+| Hero дэвсгэр | `assets/hero-bg.svg` |
+| Дэлбээний хэлбэр | `assets/petal.svg` |
 | Хөгжим | `assets/music.mp3` |
 | Газрын зураг | `index.html` дотор `iframe` болон `btn-outline` линк |
+
+> **Жинхэнэ зураг тавих:** `assets/photoN.svg`-ийг өөрийн гэрэл зургаар солихдоо `index.html`-ийн
+> галерейн `<img src="assets/photoN.svg">`-ийг `assets/photoN.jpg` (эсвэл `.webp`) болгож сольж,
+> файлаа `assets/` дотор тавина. Зургийн харьцаа **4:5 (босоо)** байвал хүрээ хамгийн сайхан тохирно.
+> `alt` болон `data-caption` текстийг утга бүхий тайлбараар солихоо мартуузай.
 
 ## Локалаар нээх
 

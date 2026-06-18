@@ -7,13 +7,33 @@
   <meta name="description" content="Бидний хуримын ёслолд хүрэлцэн ирэхийг хүндэтгэн урьж байна." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- JS байгаа эсэхийг эртхэн тэмдэглэнэ: скрипт ачаалахаас өмнө .reveal-ийг нуухгүй -->
+  <script>document.documentElement.classList.add("js");</script>
   <link rel="stylesheet" href="styles.css" />
+  <noscript>
+    <style>
+      /* JS идэвхгүй үед бүх агуулга шууд харагдана */
+      .reveal, .hero-content > *, .couple .name, .couple .amp,
+      .prog-item, .numeral, .rsvp-form label, .rsvp-form .btn-light, .g-item img {
+        opacity: 1 !important; transform: none !important; filter: none !important; letter-spacing: normal !important;
+      }
+      .divider i { transform: scaleX(1) !important; }
+      .divider-mark { transform: scale(1) !important; }
+      .monogram-ring circle { stroke-dashoffset: 0 !important; }
+      .monogram-letters { opacity: 1 !important; filter: none !important; }
+      .program-grid .prog-item + .prog-item::before { transform: scaleY(1) !important; }
+      .map-wrap iframe { filter: grayscale(.06) sepia(.02) !important; }
+    </style>
+  </noscript>
 </head>
 <body>
 
-  <!-- Хөгжим -->
-  <button id="musicToggle" class="music-toggle" aria-label="Хөгжим">
+  <!-- Скролл явцын зураас -->
+  <div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+  <!-- Хөгжим: тоглуулах боломжтой файл байгаа эсэхийг шалгаж байж л товч гарч ирнэ -->
+  <button id="musicToggle" class="music-toggle" aria-label="Хөгжим тоглуулах" aria-pressed="false" hidden>
     <span class="music-icon">&#9834;</span>
   </button>
   <audio id="bgMusic" loop preload="none">
@@ -22,50 +42,54 @@
 
   <!-- ===== HERO ===== -->
   <header class="hero" id="home">
+    <div class="hero-bg" aria-hidden="true"></div>
     <span class="hero-monogram" aria-hidden="true">Б&amp;О</span>
     <svg class="sprig sprig-tl" viewBox="0 0 120 120" aria-hidden="true"><path d="M10 110 C 40 90 55 60 60 20 M60 40 C 45 40 35 33 32 22 M60 55 C 78 53 88 45 92 33 M60 72 C 46 72 37 66 33 56 M60 88 C 77 86 86 80 90 71" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
     <svg class="sprig sprig-br" viewBox="0 0 120 120" aria-hidden="true"><path d="M10 110 C 40 90 55 60 60 20 M60 40 C 45 40 35 33 32 22 M60 55 C 78 53 88 45 92 33 M60 72 C 46 72 37 66 33 56 M60 88 C 77 86 86 80 90 71" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
 
     <div class="hero-content reveal">
-      <span class="overline overline-light">Хуримын урилга</span>
+      <span class="overline overline-light" style="--i:0">Хуримын урилга</span>
       <h1 class="couple">
-        <span class="name">Болд</span>
-        <span class="amp">&amp;</span>
-        <span class="name">Оюун</span>
+        <span class="name" style="--i:1">Болд</span>
+        <span class="amp" style="--i:2">&amp;</span>
+        <span class="name" style="--i:3">Оюун</span>
       </h1>
-      <div class="divider divider-light">
+      <div class="divider divider-light" style="--i:4">
         <i></i><span class="divider-mark">&#10022;</span><i></i>
       </div>
-      <p class="hero-date">2026 оны 9 дүгээр сарын 12, Бямба гараг</p>
-      <p class="hero-place">Улаанбаатар хот</p>
-      <a href="#rsvp" class="btn">Ирэхээ батлах</a>
+      <p class="hero-date" style="--i:5">2026 оны 9 дүгээр сарын 12, Бямба гараг</p>
+      <p class="hero-place" style="--i:6">Улаанбаатар хот</p>
+      <a href="#rsvp" class="btn" style="--i:7">Ирэхээ батлах</a>
     </div>
     <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </header>
 
   <!-- ===== COUNTDOWN (тод бараан хэсэг) ===== -->
   <section class="countdown-section">
+    <div class="vignette" aria-hidden="true"></div>
     <div class="sec-head reveal">
-      <span class="overline overline-light">Хүлээлт</span>
-      <h2 class="section-title light">Тэр өдөр хүртэл</h2>
+      <span class="overline overline-light" style="--i:0">Хүлээлт</span>
+      <h2 class="section-title light" style="--i:1">Тэр өдөр хүртэл</h2>
     </div>
-    <div class="countdown reveal" id="countdown">
-      <div class="cd-item"><span id="cd-days">00</span><label>Хоног</label></div>
+    <p class="sr-only" id="cd-static">Хурим 2026 оны 9 дүгээр сарын 12-нд болно.</p>
+    <div class="countdown reveal" id="countdown" aria-live="off">
+      <div class="cd-item"><span class="cd-roll"><b id="cd-days">00</b></span><label>Хоног</label></div>
       <div class="cd-sep">:</div>
-      <div class="cd-item"><span id="cd-hours">00</span><label>Цаг</label></div>
+      <div class="cd-item"><span class="cd-roll"><b id="cd-hours">00</b></span><label>Цаг</label></div>
       <div class="cd-sep">:</div>
-      <div class="cd-item"><span id="cd-mins">00</span><label>Минут</label></div>
+      <div class="cd-item"><span class="cd-roll"><b id="cd-mins">00</b></span><label>Минут</label></div>
       <div class="cd-sep">:</div>
-      <div class="cd-item"><span id="cd-secs">00</span><label>Секунд</label></div>
+      <div class="cd-item"><span class="cd-roll"><b id="cd-secs">00</b></span><label>Секунд</label></div>
     </div>
+    <p class="cd-today" id="cd-today" hidden>Өнөөдөр</p>
   </section>
 
   <!-- ===== ТҮҮХ ===== -->
   <section class="story" id="story">
     <div class="sec-head reveal">
-      <span class="overline">Эхлэл</span>
-      <h2 class="section-title">Бидний түүх</h2>
-      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+      <span class="overline" style="--i:0">Эхлэл</span>
+      <h2 class="section-title" style="--i:1">Бидний түүх</h2>
+      <div class="divider" style="--i:2"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
     </div>
     <p class="story-text reveal">
       Хоёр зүрх нэгэн замаар учирч, амьдралынхаа хамгийн үзэсгэлэнт бүлгийг хамтдаа
@@ -77,24 +101,24 @@
   <!-- ===== ЁСЛОЛЫН ХӨТӨЛБӨР ===== -->
   <section class="program" id="program">
     <div class="sec-head reveal">
-      <span class="overline">Хөтөлбөр</span>
-      <h2 class="section-title">Ёслолын өдөр</h2>
-      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+      <span class="overline" style="--i:0">Хөтөлбөр</span>
+      <h2 class="section-title" style="--i:1">Ёслолын өдөр</h2>
+      <div class="divider" style="--i:2"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
     </div>
-    <div class="program-grid">
-      <div class="prog-item reveal">
+    <div class="program-grid reveal">
+      <div class="prog-item" style="--i:0">
         <span class="numeral">I</span>
         <h3>Гэрлэлтийн ёслол</h3>
         <p class="prog-time">15:00</p>
         <p class="prog-place">Гэрлэлтийн ордон</p>
       </div>
-      <div class="prog-item reveal">
+      <div class="prog-item" style="--i:1">
         <span class="numeral">II</span>
         <h3>Хүндэтгэлийн хүлээн авалт</h3>
         <p class="prog-time">18:00</p>
         <p class="prog-place">Шангри-Ла, Гранд Болл</p>
       </div>
-      <div class="prog-item reveal">
+      <div class="prog-item" style="--i:2">
         <span class="numeral">III</span>
         <h3>Үдэшлэг</h3>
         <p class="prog-time">20:00</p>
@@ -106,26 +130,38 @@
   <!-- ===== ГАЛЕРЕЙ ===== -->
   <section class="gallery" id="gallery">
     <div class="sec-head reveal">
-      <span class="overline">Дурсамж</span>
-      <h2 class="section-title">Хосын цомог</h2>
-      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+      <span class="overline" style="--i:0">Дурсамж</span>
+      <h2 class="section-title" style="--i:1">Хосын цомог</h2>
+      <div class="divider" style="--i:2"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="g-item"></div>
-      <div class="g-item"></div>
-      <div class="g-item"></div>
-      <div class="g-item"></div>
-      <div class="g-item"></div>
-      <div class="g-item"></div>
+    <div class="gallery-grid">
+      <button class="g-item" type="button" style="--i:0" data-caption="Учрал" aria-label="Зураг нээх: Учрал">
+        <img src="assets/photo1.svg" alt="Хосын дурсамжийн зураг — учрал" loading="lazy" decoding="async" />
+      </button>
+      <button class="g-item" type="button" style="--i:1" data-caption="Анхны алхам" aria-label="Зураг нээх: Анхны алхам">
+        <img src="assets/photo2.svg" alt="Хосын дурсамжийн зураг — анхны алхам" loading="lazy" decoding="async" />
+      </button>
+      <button class="g-item" type="button" style="--i:2" data-caption="Амлалт" aria-label="Зураг нээх: Амлалт">
+        <img src="assets/photo3.svg" alt="Хосын дурсамжийн зураг — амлалт" loading="lazy" decoding="async" />
+      </button>
+      <button class="g-item" type="button" style="--i:1" data-caption="Хамтдаа" aria-label="Зураг нээх: Хамтдаа">
+        <img src="assets/photo4.svg" alt="Хосын дурсамжийн зураг — хамтдаа" loading="lazy" decoding="async" />
+      </button>
+      <button class="g-item" type="button" style="--i:2" data-caption="Дурсамж" aria-label="Зураг нээх: Дурсамж">
+        <img src="assets/photo5.svg" alt="Хосын дурсамжийн зураг — дурсамж" loading="lazy" decoding="async" />
+      </button>
+      <button class="g-item" type="button" style="--i:3" data-caption="Мөнхийн амлалт" aria-label="Зураг нээх: Мөнхийн амлалт">
+        <img src="assets/photo6.svg" alt="Хосын дурсамжийн зураг — мөнхийн амлалт" loading="lazy" decoding="async" />
+      </button>
     </div>
   </section>
 
   <!-- ===== БАЙРШИЛ ===== -->
   <section class="location" id="location">
     <div class="sec-head reveal">
-      <span class="overline">Газрын зураг</span>
-      <h2 class="section-title">Байршил</h2>
-      <div class="divider"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+      <span class="overline" style="--i:0">Газрын зураг</span>
+      <h2 class="section-title" style="--i:1">Байршил</h2>
+      <div class="divider" style="--i:2"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
     </div>
     <p class="loc-address reveal">Шангри-Ла зочид буудал · Улаанбаатар</p>
     <div class="map-wrap reveal">
@@ -135,40 +171,62 @@
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <a class="btn btn-outline" href="https://maps.google.com/?q=Shangri-La+Ulaanbaatar" target="_blank" rel="noopener">Замын зураг харах</a>
+    <a class="btn btn-outline reveal" href="https://maps.google.com/?q=Shangri-La+Ulaanbaatar" target="_blank" rel="noopener">Замын зураг харах</a>
   </section>
 
   <!-- ===== RSVP ===== -->
   <section class="rsvp" id="rsvp">
+    <div class="vignette" aria-hidden="true"></div>
     <div class="sec-head reveal">
-      <span class="overline overline-light">Хариу</span>
-      <h2 class="section-title light">Ирэхээ батлах</h2>
-      <div class="divider divider-light"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
+      <span class="overline overline-light" style="--i:0">Хариу</span>
+      <h2 class="section-title light" style="--i:1">Ирэхээ батлах</h2>
+      <div class="divider divider-light" style="--i:2"><i></i><span class="divider-mark">&#10022;</span><i></i></div>
     </div>
     <p class="rsvp-sub reveal">Та ирэх боломжтой эсэхээ 2026 оны 8 дугаар сарын 20-ны дотор бидэнд мэдэгдээрэй.</p>
     <form id="rsvpForm" class="rsvp-form reveal">
-      <label>Таны нэр<input type="text" name="name" required /></label>
-      <label>Утасны дугаар<input type="tel" name="phone" /></label>
-      <label>Ирэх эсэх
+      <label style="--i:0">Таны нэр<input type="text" name="name" required /></label>
+      <label style="--i:1">Утасны дугаар<input type="tel" name="phone" /></label>
+      <label style="--i:2">Ирэх эсэх
         <select name="attending" required>
           <option value="" disabled selected>Сонгоно уу</option>
           <option value="yes">Баяртайгаар оролцоно</option>
           <option value="no">Харамсалтай, чадахгүй</option>
         </select>
       </label>
-      <label>Хэдэн хүн ирэх вэ?<input type="number" name="guests" min="1" max="10" /></label>
-      <label class="full">Ерөөл, захиас<textarea name="message" rows="3"></textarea></label>
-      <button type="submit" class="btn btn-light">Илгээх</button>
-      <p id="rsvpMsg" class="rsvp-result" hidden></p>
+      <label style="--i:3">Хэдэн хүн ирэх вэ?<input type="number" name="guests" min="1" max="10" /></label>
+      <label class="full" style="--i:4">Ерөөл, захиас<textarea name="message" rows="3"></textarea></label>
+      <button type="submit" class="btn btn-light" style="--i:5">Илгээх</button>
     </form>
+    <p id="rsvpMsg" class="rsvp-result" role="status" aria-live="polite" hidden></p>
   </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
-    <div class="monogram">Б<span>&amp;</span>О</div>
-    <p class="footer-note">Таныг хүлээн угтахыг тэсэн ядан хүлээж байна</p>
-    <p class="footer-date">2026 · 09 · 12</p>
+    <div class="monogram reveal" aria-hidden="true">
+      <svg class="monogram-ring" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1" />
+      </svg>
+      <span class="monogram-letters">Б<span class="amp-sm">&amp;</span>О</span>
+    </div>
+    <p class="footer-note reveal" style="--i:0">Таныг хүлээн угтахыг тэсэн ядан хүлээж байна</p>
+    <p class="footer-sign reveal" style="--i:1" aria-hidden="true"><span>Болд</span> <span class="sign-amp">&amp;</span> <span>Оюун</span></p>
+    <p class="footer-date reveal" style="--i:2">2026 · 09 · 12</p>
   </footer>
+
+  <!-- Уналт цэцгийн дэлбээ (нэг канвас) -->
+  <canvas id="petalCanvas" aria-hidden="true"></canvas>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Зургийн цомог" hidden>
+    <button class="lb-close" type="button" aria-label="Хаах">&#10005;</button>
+    <button class="lb-nav lb-prev" type="button" aria-label="Өмнөх зураг">&#8249;</button>
+    <button class="lb-nav lb-next" type="button" aria-label="Дараагийн зураг">&#8250;</button>
+    <figure class="lb-figure">
+      <img class="lb-img" alt="" />
+      <figcaption class="lb-caption"></figcaption>
+    </figure>
+    <span class="lb-counter" aria-hidden="true"></span>
+  </div>
 
   <script src="script.js"></script>
 </body>

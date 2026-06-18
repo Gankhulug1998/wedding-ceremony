@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" width="1600" height="1000">
+  <defs>
+    <radialGradient id="warmLight" cx="50%" cy="32%" r="62%">
+      <stop offset="0%" stop-color="#fffefb"/>
+      <stop offset="42%" stop-color="#f5f1ea"/>
+      <stop offset="100%" stop-color="#efe7da"/>
+    </radialGradient>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#efe7da" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#e2d7c5" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="28%" r="40%">
+      <stop offset="0%" stop-color="#fffefb" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#fffefb" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#fffefb" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.145  0 0 0 0 0.122  0 0 0 0.5 0"/>
+    </filter>
+    <filter id="soften" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.4"/>
+    </filter>
+
+    <!-- a single airy sprig, drawn around origin, reused in corners -->
+    <g id="sprig" fill="none" stroke="#c8a96f" stroke-width="1.1" stroke-linecap="round">
+      <!-- main stem -->
+      <path d="M0,0 C70,-18 150,-30 240,-22 C320,-15 380,-2 430,18"/>
+      <!-- side stems -->
+      <path d="M120,-26 C150,-70 168,-110 160,-150" stroke-width="0.9"/>
+      <path d="M250,-22 C290,-58 300,-96 286,-138" stroke-width="0.9"/>
+      <path d="M180,-8 C130,12 96,44 92,86" stroke-width="0.9"/>
+      <!-- leaves along main stem -->
+      <g stroke-width="0.9">
+        <path d="M60,-15 C78,-34 104,-40 122,-30 C104,-22 80,-18 60,-15 Z"/>
+        <path d="M110,-23 C122,-46 148,-56 168,-50 C150,-38 128,-30 110,-23 Z"/>
+        <path d="M175,-25 C186,-50 214,-60 234,-53 C216,-42 194,-33 175,-25 Z"/>
+        <path d="M240,-22 C250,-48 278,-58 300,-52 C282,-40 260,-30 240,-22 Z"/>
+        <path d="M300,-16 C310,-40 338,-49 360,-43 C342,-32 320,-23 300,-16 Z"/>
+        <path d="M360,-6 C372,-26 400,-32 420,-25 C402,-16 380,-9 360,-6 Z"/>
+        <!-- under-stem leaves -->
+        <path d="M150,-22 C146,2 158,28 184,38 C176,16 162,-4 150,-22 Z"/>
+        <path d="M210,-22 C208,4 224,30 250,40 C238,18 222,-2 210,-22 Z"/>
+      </g>
+      <!-- side-stem leaves -->
+      <g stroke-width="0.85">
+        <path d="M140,-72 C124,-86 122,-110 134,-126 C144,-108 144,-88 140,-72 Z"/>
+        <path d="M162,-108 C150,-126 152,-150 166,-164 C172,-142 170,-122 162,-108 Z"/>
+        <path d="M286,-66 C272,-82 272,-106 286,-120 C294,-100 292,-82 286,-66 Z"/>
+        <path d="M294,-104 C284,-124 288,-148 304,-160 C308,-138 304,-120 294,-104 Z"/>
+      </g>
+      <!-- tiny seed dots -->
+      <g fill="#c8a96f" stroke="none">
+        <circle cx="160" cy="-150" r="2.2"/>
+        <circle cx="286" cy="-138" r="2.2"/>
+        <circle cx="430" cy="18" r="2.2"/>
+        <circle cx="92" cy="86" r="2"/>
+      </g>
+    </g>
+
+    <!-- faint sparse dot field -->
+    <pattern id="dots" width="64" height="64" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="10" r="1" fill="#b18f5a" opacity="0.05"/>
+      <circle cx="40" cy="44" r="1" fill="#b18f5a" opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <!-- ground -->
+  <rect width="1600" height="1000" fill="url(#warmLight)"/>
+  <rect width="1600" height="1000" fill="url(#vignette)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <rect width="1600" height="1000" fill="url(#dots)"/>
+
+  <!-- whisper-soft grain -->
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.045"/>
+
+  <!-- botanical sprigs drifting in from the four corners, very subtle -->
+  <g filter="url(#soften)">
+    <!-- top-left -->
+    <use href="#sprig" transform="translate(-40,200) rotate(-12) scale(1.05)" opacity="0.16"/>
+    <!-- top-right (mirrored) -->
+    <use href="#sprig" transform="translate(1640,210) rotate(12) scale(-1.05,1.05)" opacity="0.16"/>
+    <!-- bottom-left (mirrored vertically) -->
+    <use href="#sprig" transform="translate(-30,820) rotate(10) scale(1,-1)" opacity="0.13"/>
+    <!-- bottom-right -->
+    <use href="#sprig" transform="translate(1630,805) rotate(-10) scale(-1,-1)" opacity="0.13"/>
+  </g>
+
+  <!-- a faint dusty-rose breath near upper center for warmth -->
+  <ellipse cx="800" cy="300" rx="360" ry="200" fill="#e3cfc7" opacity="0.05"/>
+
+  <!-- thin inset gold frame, ~24px inset -->
+  <rect x="24" y="24" width="1552" height="952" fill="none" stroke="#b18f5a" stroke-width="1" opacity="0.55"/>
+  <rect x="30" y="30" width="1540" height="940" fill="none" stroke="#e2d7c5" stroke-width="1" opacity="0.6"/>
+</svg>

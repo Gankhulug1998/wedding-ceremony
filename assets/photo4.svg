@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="ground" cx="50%" cy="38%" r="75%">
+      <stop offset="0%" stop-color="#fffefb"/>
+      <stop offset="45%" stop-color="#f5f1ea"/>
+      <stop offset="100%" stop-color="#efe7da"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fffefb" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#fffefb" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldStroke" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8a96f"/>
+      <stop offset="100%" stop-color="#b18f5a"/>
+    </linearGradient>
+    <radialGradient id="bokeh" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c8a96f" stop-opacity="0.18"/>
+      <stop offset="70%" stop-color="#c8a96f" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#c8a96f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bokehRose" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e3cfc7" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#e3cfc7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="liquid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c8a96f" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#b18f5a" stop-opacity="0.16"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.14  0 0 0 0 0.12  0 0 0 0.5 0"/>
+    </filter>
+  </defs>
+
+  <!-- Ground -->
+  <rect width="800" height="1000" fill="url(#ground)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+
+  <!-- Soft warm bokeh dots -->
+  <g>
+    <circle cx="150" cy="180" r="70" fill="url(#bokeh)"/>
+    <circle cx="650" cy="150" r="90" fill="url(#bokeh)"/>
+    <circle cx="690" cy="360" r="55" fill="url(#bokehRose)"/>
+    <circle cx="110" cy="430" r="48" fill="url(#bokeh)"/>
+    <circle cx="560" cy="520" r="64" fill="url(#bokeh)"/>
+    <circle cx="240" cy="600" r="40" fill="url(#bokehRose)"/>
+    <circle cx="620" cy="720" r="58" fill="url(#bokeh)"/>
+    <circle cx="170" cy="780" r="46" fill="url(#bokeh)"/>
+    <circle cx="430" cy="850" r="72" fill="url(#bokeh)"/>
+    <circle cx="380" cy="120" r="34" fill="url(#bokehRose)"/>
+    <circle cx="500" cy="280" r="28" fill="url(#bokeh)"/>
+    <circle cx="300" cy="330" r="24" fill="url(#bokeh)"/>
+  </g>
+
+  <!-- Champagne flutes meeting in a toast -->
+  <g fill="none" stroke="url(#goldStroke)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- LEFT FLUTE (tilted right, meeting at top center) -->
+    <g transform="translate(400 300) rotate(-13) translate(-400 -300)">
+      <!-- bowl liquid fill -->
+      <path d="M362 188 C362 250 374 296 400 320 C426 296 438 250 438 188 Z" fill="url(#liquid)" stroke="none"/>
+      <!-- bowl outline -->
+      <path d="M362 188 C362 250 374 298 400 322 C426 298 438 250 438 188"/>
+      <!-- rim -->
+      <path d="M362 188 C362 178 438 178 438 188"/>
+      <!-- liquid surface line -->
+      <path d="M368 210 C390 220 410 220 432 210" stroke-width="1.4" opacity="0.7"/>
+      <!-- stem -->
+      <line x1="400" y1="322" x2="400" y2="470"/>
+      <!-- base -->
+      <path d="M362 488 C362 472 438 472 438 488 C438 498 362 498 362 488 Z" fill="url(#liquid)"/>
+      <path d="M362 488 C362 472 438 472 438 488"/>
+      <ellipse cx="400" cy="470" rx="38" ry="10"/>
+    </g>
+
+    <!-- RIGHT FLUTE (tilted left, mirrored) -->
+    <g transform="translate(400 300) rotate(13) translate(-400 -300)">
+      <path d="M362 188 C362 250 374 296 400 320 C426 296 438 250 438 188 Z" fill="url(#liquid)" stroke="none"/>
+      <path d="M362 188 C362 250 374 298 400 322 C426 298 438 250 438 188"/>
+      <path d="M362 188 C362 178 438 178 438 188"/>
+      <path d="M368 210 C390 220 410 220 432 210" stroke-width="1.4" opacity="0.7"/>
+      <line x1="400" y1="322" x2="400" y2="470"/>
+      <path d="M362 488 C362 472 438 472 438 488 C438 498 362 498 362 488 Z" fill="url(#liquid)"/>
+      <path d="M362 488 C362 472 438 472 438 488"/>
+      <ellipse cx="400" cy="470" rx="38" ry="10"/>
+    </g>
+
+    <!-- tiny clink sparkle at meeting point -->
+    <g stroke-width="1.6" opacity="0.85">
+      <line x1="400" y1="150" x2="400" y2="170"/>
+      <line x1="378" y1="162" x2="392" y2="170"/>
+      <line x1="422" y1="162" x2="408" y2="170"/>
+    </g>
+  </g>
+
+  <!-- Rising bubbles -->
+  <g fill="none" stroke="#c8a96f" stroke-width="1.1" opacity="0.55">
+    <circle cx="346" cy="262" r="3.2"/>
+    <circle cx="358" cy="300" r="2.2"/>
+    <circle cx="352" cy="346" r="2.8"/>
+    <circle cx="340" cy="390" r="1.8"/>
+    <circle cx="364" cy="420" r="2.4"/>
+    <circle cx="454" cy="262" r="3.2"/>
+    <circle cx="442" cy="300" r="2.2"/>
+    <circle cx="448" cy="346" r="2.8"/>
+    <circle cx="460" cy="390" r="1.8"/>
+    <circle cx="436" cy="420" r="2.4"/>
+  </g>
+  <g fill="#c8a96f" opacity="0.30">
+    <circle cx="350" cy="282" r="1.4"/>
+    <circle cx="356" cy="366" r="1.2"/>
+    <circle cx="450" cy="282" r="1.4"/>
+    <circle cx="444" cy="366" r="1.2"/>
+  </g>
+
+  <!-- delicate small text -->
+  <text x="400" y="720" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" letter-spacing="10" fill="#b18f5a" opacity="0.8">CHEERS</text>
+  <line x1="330" y1="748" x2="470" y2="748" stroke="#e2d7c5" stroke-width="1"/>
+
+  <!-- Whisper-soft grain -->
+  <rect width="800" height="1000" filter="url(#grain)" opacity="0.05"/>
+
+  <!-- Thin inset gold frame -->
+  <rect x="24" y="24" width="752" height="952" fill="none" stroke="url(#goldStroke)" stroke-width="1"/>
+  <rect x="30" y="30" width="740" height="940" fill="none" stroke="#e2d7c5" stroke-width="0.6" opacity="0.7"/>
+</svg>
